@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battle Game</title>
+    <!-- Add any necessary styles here -->
+    <style>
+        /* Add your CSS styles for the game UI */
+        /* Define the styles for buttons, inputs, etc. */
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Battle Game</h1>
+        <p>Instructions:</p>
+        <p>1: Throw stones: Spend 5 power to inflict 10 damage on a role of 2-6.</p>
+<p>2: Punch opponent: Spend 10 power to inflict 20 damage on a role of 3-6.</p>
+<p>3: Club opponent with tail: Spend 15 power to inflict 30 damage on a role of 4-6.</p>
+<p>4: Claw opponent: Spend 20 power to inflict 40 damage on a role of 5-6.</p>
+<p>5: Bite opponent: Spend 25 power to inflict 50 damage on a role of 6.</p>
+        
+        <div id="game-results">
+            <!-- Display game results here -->
+        </div>
+        
+        <div id="player-input">
+            <!-- Player input fields and buttons -->
+            <label for="player-attack">Enter Attack:</label>
+            <input type="number" id="player-attack" min="1" max="5">
+            <button onclick="performAttack()">Attack</button>
+        </div>
+    </div>
+
+    <script>
+        let powerA = 100;
+        let powerB = 100;
+        let healthA = 100;
+        let healthB = 100;
+        let chance = "A";
+
+        function performAttack() {
+            const playerAttack = document.getElementById("player-attack").value;
+            const randomRoll = Math.floor(Math.random() * 6) + 1;
+
+            if (chance === "A") {
+                handleAttack(playerAttack, randomRoll, "A", "B");
+            } else {
+                handleAttack(playerAttack, randomRoll, "B", "A");
+            }
+        }
+
+        function handleAttack(attack, roll, attackingPlayer, defendingPlayer) {
+            let damage = 0;
+            let powerReduction = 0;
+
+            switch (parseInt(attack)) {
+                case 1:
+                    if (roll > 1) {
+                        powerReduction = 5;
+                        damage = 10;
+                    } else {
+                        powerReduction = 5;
+                    }
+                    break;
+                case 2:
+                    if (roll > 2) {
+                        powerReduction = 10;
+                        damage = 20;
+                    } else {
+                        powerReduction = 10;
+                    }
+                    break;
+                case 3:
+                    if (roll > 3) {
+                        powerReduction = 15;
+                        damage = 30;
+                    } else {
+                        powerReduction = 15;
+                    }
+                    break;
+                case 4:
+                    if (roll > 4) {
+                        powerReduction = 20;
+                        damage = 40;
+                    } else {
+                        powerReduction = 20;
+                    }
+                    break;
+                case 5:
+                    if (roll === 6) {
+                        powerReduction = 25;
+                        damage = 50;
+                    } else {
+                        powerReduction = 25;
+                    }
+                    break;
+                default:
+                    console.log("Invalid Attack");
+                    return;
+            }
+
+            if (attackingPlayer === "A") {
+                powerA -= powerReduction;
+                if (damage > 0) {
+                    healthB -= damage;
+                    console.log(`${roll}: Attack success`);
+                } else {
+                    console.log(roll);
+                }
+            } else {
+                powerB -= powerReduction;
+                if (damage > 0) {
+                    healthA -= damage;
+                    console.log(`${roll}: Attack success`);
+                } else {
+                    console.log(roll);
+                }
+            }
+
+            chance = defendingPlayer;
+            displayResults();
+        }
+
+        function displayResults() {
+            const gameResults = document.getElementById("game-results");
+            gameResults.innerHTML = `
+                <p>Power of A: ${powerA} | Power of B: ${powerB}</p>
+                <p>Health of A: ${healthA} | Health of B: ${healthB}</p>
+            `;
+
+            if (powerA === 0 || healthA === 0) {
+                gameResults.innerHTML += "<p>B WINS!</p>";
+            } else if (powerB === 0 || healthB === 0) {
+                gameResults.innerHTML += "<p>A WINS!</p>";
+            }
+        }
+    </script>
+</body>
+</html>

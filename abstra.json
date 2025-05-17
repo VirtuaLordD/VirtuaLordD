@@ -1,0 +1,94 @@
+{
+  "workspace": {
+    "id": null,
+    "name": "Untitled Workspace",
+    "theme": null,
+    "logo_url": null,
+    "brand_name": null,
+    "main_color": "#000000",
+    "font_color": null,
+    "font_family": null,
+    "sidebar": [
+      {
+        "id": "bcb08fd1-b1cd-45f0-a93f-e3e0c393eb24",
+        "name": "New form",
+        "path": "new-form-tmt25gk",
+        "type": "form",
+        "visible": false
+      }
+    ]
+  },
+  "visualization": [],
+  "kanban": {
+    "access_control": {
+      "is_public": false,
+      "required_roles": []
+    }
+  },
+  "home": {
+    "access_control": {
+      "is_public": true,
+      "required_roles": []
+    }
+  },
+  "jobs": [],
+  "hooks": [],
+  "forms": [
+    {
+      "id": "bcb08fd1-b1cd-45f0-a93f-e3e0c393eb24",
+      "path": "new-form-tmt25gk",
+      "title": "New form",
+      "is_initial": true,
+      "auto_start": false,
+      "allow_restart": false,
+      "end_message": null,
+      "start_message": null,
+      "error_message": null,
+      "welcome_title": null,
+      "timeout_message": null,
+      "start_button_text": null,
+      "restart_button_text": null,
+      "file": "new_form.py",
+      "workflow_position": [
+        -96.0,
+        -128.0
+      ],
+      "transitions": [
+        {
+          "target_id": "cc59efc4-dc06-4a8a-848f-a2e5eb011b8c",
+          "target_type": "scripts",
+          "type": "forms:finished",
+          "id": "oen2a9v",
+          "condition_value": null
+        }
+      ],
+      "notification_trigger": {
+        "variable_name": "assignee_emails",
+        "enabled": false
+      },
+      "access_control": {
+        "is_public": true,
+        "required_roles": []
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "id": "cc59efc4-dc06-4a8a-848f-a2e5eb011b8c",
+      "file": "player_management_system.py",
+      "title": "Player management system",
+      "is_initial": false,
+      "workflow_position": [
+        0.0,
+        0.0
+      ],
+      "transitions": []
+    }
+  ],
+  "iterators": [],
+  "conditions": [],
+  "signup_policy": {
+    "email_patterns": []
+  },
+  "version": "7.0"
+}

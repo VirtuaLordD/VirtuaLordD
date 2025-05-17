@@ -1,0 +1,7 @@
+Lionel Messi , 36 , Male , RW\CM , Inter Miami , Left , 90 , 97 , 99 , 99 
+Suarez , 38 , Male , CF\ST , Inter Miami , Right , 95 , 98 , 90 , 85 
+Advaith , 17 , Male , CM\DF , Inter Miami , Left , 90 , 92 , 85 , 93 
+Fadhil , 17 , Male , ST\CD , Al Nassr , Right , 95 , 97 , 90 , 93 
+Sahad , 17 , Male , GK\CD , AlNassr , Right , 90 , 92 , 81 , 85 
+Nadeem , 17 , Male , ST\LW , Barcelona , Right , 99 , 99 , 98 , 97 
+Fadil R , 17 , Male , ST\RW , Barcelona , Right , 99 , 99 , 99 , 99
